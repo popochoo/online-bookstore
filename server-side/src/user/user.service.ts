@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { BadRequestException, Injectable } from '@nestjs/common'
 import { PrismaService } from 'src/prisma.service'
 
 import { hash } from 'argon2'
@@ -32,6 +32,10 @@ export class UserService {
 				orders: true
 			}
 		})
+
+		if (user === undefined) {
+			throw new BadRequestException('Ошибка')
+		}
 
 		return user
 	}
