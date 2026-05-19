@@ -15,7 +15,7 @@ import { AuthService } from './auth.service'
 import { AuthDto } from './dto/auth.dto'
 import { Request, Response } from 'express'
 import { AuthGuard } from '@nestjs/passport'
-import { ref } from 'node:process'
+import { OAuthRequest } from './interface/auth.interface'
 
 @Controller('auth')
 export class AuthController {
@@ -24,7 +24,10 @@ export class AuthController {
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	@Post('login')
-	async login(@Body() dto: AuthDto, @Res() res: Response) {
+	async login(
+		@Body() dto: AuthDto,
+		@Res({ passthrough: true }) res: Response
+	) {
 		const { refreshToken, ...response } = await this.authService.login(dto)
 
 		this.authService.addRefreshTokenToResponse(res, refreshToken)
@@ -35,7 +38,10 @@ export class AuthController {
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	@Post('register')
-	async register(@Body() dto: AuthDto, @Res() res: Response) {
+	async register(
+		@Body() dto: AuthDto,
+		@Res({ passthrough: true }) res: Response
+	) {
 		const { refreshToken, ...response } =
 			await this.authService.register(dto)
 
@@ -77,14 +83,11 @@ export class AuthController {
 
 	@Get('google')
 	@UseGuards(AuthGuard('google'))
-	async googleAuth(@Req() _req) {}
+	async googleAuth() {}
 
 	@Get('google/callback')
 	@UseGuards(AuthGuard('google'))
-	async googleCallback(
-		@Req() req: any,
-		@Res({ passthrough: true }) res: Response
-	) {
+	async googleCallback(@Req() req: OAuthRequest, @Res() res: Response) {
 		const { refreshToken, ...response } =
 			await this.authService.validateOAuthLogin(req)
 
