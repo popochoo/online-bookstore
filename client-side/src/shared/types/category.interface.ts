@@ -1,8 +1,8 @@
 export interface ICategory {
-    id: string
-    createdAt: string
-    name: string
-    value: string
+	id: string
+	createdAt: string
+	name: string
+	value: string
 }
 
 export type ICategoryInput = Pick<ICategory, 'name' | 'value'>

@@ -1,8 +1,8 @@
-import { IBook } from "./book.interface"
+import { IBook } from './book.interface'
 
 export interface ICartItem {
-    id: number
-    book: IBook
-    quantity: number
-    price: number
+	id: number
+	book: IBook
+	quantity: number
+	price: number
 }
