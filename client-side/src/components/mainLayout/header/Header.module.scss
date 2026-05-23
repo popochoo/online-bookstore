@@ -1,0 +1,21 @@
+@reference "../../../app/globals.css";
+
+.header {
+    @apply p-5 gap-x-4 h-full flex justify-between items-center bg-white border-b;
+
+    > .search {
+        @apply ml-auto hidden w-[40%];
+
+        @media (min-width: 1024px) {
+            @apply block;
+        }
+    }
+
+    > :global(.header-menu) {
+        @apply ml-auto;
+        
+        @media (min-width: 1024px) {
+            @apply ml-0;
+        }
+    }
+}
