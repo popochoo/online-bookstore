@@ -5,12 +5,12 @@ import { IUser } from "../shared/types/user.interface";
 
 class UserService {
     async getProfile() {
-        const response = await axiosWithAuth<IUser>({
+        const { data } = await axiosWithAuth<IUser>({
             url: API_URL.users('/profile'),
             method: 'GET'
         })
 
-        return response
+        return data
     }
 
     async toggleFavorite(bookId: string) {
