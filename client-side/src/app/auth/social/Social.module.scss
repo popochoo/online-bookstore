@@ -1,0 +1,13 @@
+@reference "../../globals.css"; 
+
+.social {
+    @apply space-y-3 w-full mt-5;
+
+    > button {
+        @apply w-full;
+
+        > svg {
+            @apply size-5 mr-2;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+@reference "../globals.css"; 
+
+.wrapper {
+    @apply min-h-screen grid grid-cols-1;
+
+    @media (min-width: 1024px) {
+        @apply grid-cols-2;
+    }
+
+    > .left {
+        @apply h-full hidden items-center flex flex-col justify-center bg-[#f6f6f6];
+
+        @media (min-width: 1024px) {
+            @apply flex;
+        }
+
+        > h1 {
+            @apply text-6xl font-bold tracking-tight text-foreground m-0;
+        }
+    }
+
+    > .right {
+        @apply h-full flex flex-col items-center justify-center;
+
+        > .card {
+            @apply border-none w-100 p-6 flex flex-col items-center justify-center;
+
+            > .header {
+                @apply text-center pb-6 flex flex-col items-center gap-2 w-full;
+
+                > h3 {
+                    @apply text-3xl font-bold tracking-tight text-foreground m-0;
+                }
+
+                > p {
+                    @apply text-sm text-muted-foreground w-full leading-relaxed m-0 block;
+                }
+            }
+
+            > .content {
+                @apply p-0 w-full;
+
+                form {
+                    @apply space-y-5;
+
+                    button {
+                        @apply w-full;
+                    }
+                }
+            }
+
+            > .footer {
+                @apply p-0 mt-4 text-sm text-muted-foreground;
+
+                > button {
+                    @apply ml-1 text-sky-600;
+                }
+            }
+        }
+    }
+}
