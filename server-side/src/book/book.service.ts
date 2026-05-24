@@ -87,7 +87,19 @@ export class BookService {
 			}
 		})
 
-		const bookIds = mostPopularBook.map(item => item.bookId as string)
+		// 1. Извлекаем ID книг и ОБЯЗАТЕЛЬНО фильтруем массив от null
+		const bookIds = mostPopularBook
+			.map(item => item.bookId as string)
+			.filter(Boolean) // Уберет null, если заказов еще нет
+
+		// 2. ЗАЩИТА: Если заказов нет и массив пустой, возвращаем просто дефолтные книги из сидов
+		if (bookIds.length === 0) {
+			return await this.prisma.book.findMany({
+				take: 6,
+				orderBy: { createdAt: 'desc' },
+				include: { category: true }
+			})
+		}
 
 		const books = await this.prisma.book.findMany({
 			where: {
