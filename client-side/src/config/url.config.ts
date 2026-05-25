@@ -5,7 +5,10 @@ export const PUBLIC_URL = {
 
 	home: () => PUBLIC_URL.root('/'),
 	auth: () => PUBLIC_URL.root('/auth'),
-	explorer: (query = '') => PUBLIC_URL.root(`/explorer${query}`),
+	explorer: (query = '') => {
+		const queryString = query ? `?${query.replace(/^[?&]/, '')}` : ''
+		return PUBLIC_URL.root(`/explorer${queryString}`)
+	},
 
 	book: (id = '') => PUBLIC_URL.root(`/book/${id}`),
 	category: (id = '') => PUBLIC_URL.root(`/category/${id}`)
