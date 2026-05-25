@@ -7,8 +7,8 @@ export const PUBLIC_URL = {
 	auth: () => PUBLIC_URL.root('/auth'),
 	explorer: (query = '') => PUBLIC_URL.root(`/explorer${query}`),
 
-	books: (id = '') => PUBLIC_URL.root(`/book/${id}`),
-	categories: (id = '') => PUBLIC_URL.root(`/category/${id}`)
+	book: (id = '') => PUBLIC_URL.root(`/book/${id}`),
+	category: (id = '') => PUBLIC_URL.root(`/category/${id}`)
 }
 
 export const DASHBOARD_URL = {
