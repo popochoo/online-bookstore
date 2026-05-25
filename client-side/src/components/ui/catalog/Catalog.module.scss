@@ -39,7 +39,7 @@
         @apply w-full;
 
         > .books {
-            @apply mt-2 w-full flex flex-wrap gap-8;
+            @apply mt-2 w-full flex flex-wrap gap-8 justify-center;
 
             @media (min-width: 640px) {
                 @apply grid-cols-2;

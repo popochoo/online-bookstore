@@ -13,7 +13,7 @@ interface BookCardProps {
 export function BookCard({ book }: BookCardProps) {
 	return (
 		<div className={styles.card}>
-			<Link href={PUBLIC_URL.books(book.id)}>
+			<Link href={PUBLIC_URL.book(book.id)}>
 				<Image
 					src={book.images[0]}
 					alt={book.title}
@@ -24,7 +24,7 @@ export function BookCard({ book }: BookCardProps) {
 
 			<h3 className={styles.title}>{book.title}</h3>
 			<Link
-				href={PUBLIC_URL.categories(book.category.id)}
+				href={PUBLIC_URL.category(book.category.id)}
 				className={styles.category}
 			>
 				{book.category.title}
