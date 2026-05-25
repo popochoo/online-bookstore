@@ -18,13 +18,11 @@ import { CategoryDto } from './dto/category.dto'
 export class CategoryController {
 	constructor(private readonly categoryService: CategoryService) {}
 
-	@Auth()
 	@Get()
 	async getAll() {
 		return this.categoryService.getAll()
 	}
 
-	@Auth()
 	@Get('by-id/:id')
 	async getById(@Param('id') id: string) {
 		return this.categoryService.getById(id)
