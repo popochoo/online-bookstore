@@ -29,7 +29,7 @@ export class BookController {
 		return this.bookService.getById(id)
 	}
 
-	@Get('by-category/:category')
+	@Get('by-category/:categoryId')
 	async getByCategory(@Param('categoryId') categoryId: string) {
 		return this.bookService.getByCategory(categoryId)
 	}
