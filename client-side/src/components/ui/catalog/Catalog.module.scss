@@ -1,0 +1,57 @@
+@reference "../../../app/globals.css";
+
+.wrapper {
+    .header {
+        @apply mb-4;
+
+        @media (min-width: 768px) {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+        }
+
+        > .info {
+            @apply max-w-2xl;
+
+            @media (min-width: 1024px) {
+                max-width: none !important;
+            }
+
+            > h1 {
+                @apply text-2xl font-bold;
+            }
+
+            > p {
+                @apply mt-2 text-sm text-muted-foreground;
+            }
+        }
+
+        > a {
+            @apply hidden text-sm font-medium text-gray-500 hover:text-gray-500/90;
+
+            @media (min-width: 768px) {
+                display: flex !important;
+            }
+        }
+    }
+
+    .catalog {
+        @apply w-full;
+
+        > .books {
+            @apply mt-2 w-full flex flex-wrap gap-8;
+
+            @media (min-width: 640px) {
+                @apply grid-cols-2;
+            }
+
+            @media (min-width: 1024px) {
+                @apply grid-cols-3;
+            }
+
+            @media (min-width: 1536px) {
+                @apply grid-cols-6;
+            }
+        }
+    }
+}
