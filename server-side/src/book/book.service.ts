@@ -30,13 +30,18 @@ export class BookService {
 						title: {
 							contains: searchTerm,
 							mode: 'insensitive'
-						},
+						}
+					},
+					{
 						description: {
 							contains: searchTerm,
 							mode: 'insensitive'
 						}
 					}
 				]
+			},
+			include: {
+				category: true
 			}
 		})
 	}
@@ -48,7 +53,11 @@ export class BookService {
 			},
 			include: {
 				category: true,
-				reviews: true
+				reviews: {
+					include: {
+						user: true
+					}
+				}
 			}
 		})
 

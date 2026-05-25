@@ -14,7 +14,11 @@ export class UserService {
 				id
 			},
 			include: {
-				favorites: true,
+				favorites: {
+					include: {
+						category: true
+					}
+				},
 				orders: true
 			}
 		})
