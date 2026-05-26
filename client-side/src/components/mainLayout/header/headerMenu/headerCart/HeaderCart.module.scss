@@ -1,0 +1,57 @@
+@reference "../../../../../app/globals.css";
+
+.cart {
+    @apply h-full flex flex-col justify-between p-6 bg-slate-50;
+
+    .items {
+        @apply flex flex-col w-full flex-1 overflow-y-auto pr-1 my-4;
+
+        > .item {
+            @apply flex items-center mb-5 bg-white p-4 rounded-xl border border-slate-100 shadow-sm;
+
+            > .image {
+                @apply relative h-24 w-24 rounded-md overflow-hidden flex-shrink-0;
+
+                > img {
+                    @apply object-cover;
+                }
+            }
+
+            > .right {
+                @apply ml-4 flex-1;
+
+                > h2 {
+                    @apply font-medium line-clamp-1 text-base text-slate-900;
+                }
+
+                > p {
+                    @apply text-sm font-semibold text-slate-700 mt-1;
+                }
+
+                .actions {
+                    @apply flex items-center mt-3 bg-slate-50 w-max rounded-lg border p-0.5;
+
+                    input {
+                        @apply w-8 text-center text-sm bg-transparent border-none focus:outline-none;
+                    }
+
+                    button {
+                        @apply size-6 flex items-center justify-center rounded-md hover:bg-white hover:shadow-sm transition-all;
+
+                        svg {
+                            @apply size-3.5 text-slate-600;
+                        }
+                    }
+                }
+            }
+        }
+
+        > .not_found {
+            @apply text-sm text-muted-foreground py-8 text-center;
+        }
+    }
+
+    .total {
+        @apply text-lg font-semibold text-slate-900;
+    }
+}

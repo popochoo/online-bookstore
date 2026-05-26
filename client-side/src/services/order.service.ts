@@ -7,8 +7,8 @@ type TypeData = {
     items: {
         quantity: number
         price: number
-        bookId: number
-    }
+        bookId: string
+    }[]
 }
 
 class OrderService {

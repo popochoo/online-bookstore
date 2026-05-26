@@ -12,6 +12,18 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com'
+      },
+      {
+				protocol: 'https',
+				hostname: 'avatars.githubusercontent.com',
+				port: '',
+				pathname: '/**'
+			},
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+        port: '',
+        pathname: '/**'
       }
     ]
   },
