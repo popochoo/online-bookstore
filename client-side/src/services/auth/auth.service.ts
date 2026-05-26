@@ -17,10 +17,10 @@ class AuthService {
 		return response
 	}
 
-    async getNewTokens() {
+	async getNewTokens() {
 		const response = await axiosClassic<IAuthResponse>({
 			url: API_URL.auth('/login/access-token'),
-			method: 'POST',
+			method: 'POST'
 		})
 
 		if (response.data.accessToken)
@@ -29,17 +29,16 @@ class AuthService {
 		return response
 	}
 
-    async logout() {
+	async logout() {
 		const response = await axiosClassic<boolean>({
 			url: API_URL.auth('/logout'),
-			method: 'POST',
+			method: 'POST'
 		})
 
-		if (response.data)
-			removeFromStorage()
+		if (response.data) removeFromStorage()
 
 		return response
 	}
 }
 
-export const authService = new AuthService
+export const authService = new AuthService()

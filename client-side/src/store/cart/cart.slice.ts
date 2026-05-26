@@ -1,35 +1,43 @@
-import type { IAddToCartPayload, ICartInitialState, IChangeQuantityPayload } from "./cart.types";
-
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
+import type {
+	IAddToCartPayload,
+	ICartInitialState,
+	IChangeQuantityPayload
+} from './cart.types'
+
 const initialState: ICartInitialState = {
-    items: []
+	items: []
 }
 
 export const cartSlice = createSlice({
-    name: 'cart',
-    initialState,
-    reducers: {
-        addToCart: (state, action: PayloadAction<IAddToCartPayload>) => {
-            const isExists = state.items.some(
-                item => item.book.id === action.payload.book.id
-            )
+	name: 'cart',
+	initialState,
+	reducers: {
+		addToCart: (state, action: PayloadAction<IAddToCartPayload>) => {
+			const isExists = state.items.some(
+				item => item.book.id === action.payload.book.id
+			)
 
-            if (!isExists) state.items.push({ ...action.payload, id: state.items.length })
-        },
-        removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
-            state.items = state.items.filter(
-                item => item.id !== action.payload.id
-            )
-        },
-        changeQuantity: (state, action: PayloadAction<IChangeQuantityPayload>) => {
-            const { id, type } = action.payload
-            const item = state.items.find(item => item.id === id)
-            
-            if (item) type === 'plus' ? item.quantity++ : item.quantity--
-        },
-        reset: (state) => {
-            state.items = []
-        }
-    }
+			if (!isExists)
+				state.items.push({ ...action.payload, id: state.items.length })
+		},
+		removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
+			state.items = state.items.filter(
+				item => item.id !== action.payload.id
+			)
+		},
+		changeQuantity: (
+			state,
+			action: PayloadAction<IChangeQuantityPayload>
+		) => {
+			const { id, type } = action.payload
+			const item = state.items.find(item => item.id === id)
+
+			if (item) type === 'plus' ? item.quantity++ : item.quantity--
+		},
+		reset: state => {
+			state.items = []
+		}
+	}
 })

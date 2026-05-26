@@ -1,11 +1,11 @@
-import type { ICartItem } from "@/src/shared/types/cart.interface";
+import type { ICartItem } from '@/src/shared/types/cart.interface'
 
 export interface ICartInitialState {
-    items: ICartItem[]
+	items: ICartItem[]
 }
 
 export type IAddToCartPayload = Omit<ICartItem, 'id'>
 
 export interface IChangeQuantityPayload extends Pick<ICartItem, 'id'> {
-    type: 'minus' | 'plus'
+	type: 'minus' | 'plus'
 }

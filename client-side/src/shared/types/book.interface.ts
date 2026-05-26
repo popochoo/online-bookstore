@@ -11,9 +11,6 @@ export interface IBook {
 	reviews: IReview[]
 }
 
-export interface IBookInput extends Omit<
-	IBook,
-	'id' | 'reviews' | 'category'
-> {
+export interface IBookInput extends Omit<IBook, 'id' | 'reviews' | 'category'> {
 	categoryId: string
 }

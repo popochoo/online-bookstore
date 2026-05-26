@@ -1,5 +1,5 @@
-import { cartSlice } from "./cart/cart.slice";
+import { cartSlice } from './cart/cart.slice'
 
 export const rootActions = {
-    ...cartSlice.actions
+	...cartSlice.actions
 }

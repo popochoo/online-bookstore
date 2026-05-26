@@ -5,9 +5,9 @@ import {
 	getAccessToken,
 	removeFromStorage
 } from '../services/auth/auth-token.service'
+import { authService } from '../services/auth/auth.service'
 
 import { errorCatch, getContentType } from './api.helper'
-import { authService } from '../services/auth/auth.service'
 
 const options: CreateAxiosDefaults = {
 	baseURL: SERVER_URL,

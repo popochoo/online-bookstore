@@ -1,31 +1,30 @@
-import { NextResponse, type NextRequest } from "next/server";
-import { EnumTokens } from "./services/auth/auth-token.service";
-import { PUBLIC_URL } from "./config/url.config";
+import { type NextRequest, NextResponse } from 'next/server'
+
+import { PUBLIC_URL } from './config/url.config'
+import { EnumTokens } from './services/auth/auth-token.service'
 
 export async function middleware(request: NextRequest) {
-    const refreshToken = request.cookies.get(EnumTokens.REFRESH_TOKEN)?.value
+	const refreshToken = request.cookies.get(EnumTokens.REFRESH_TOKEN)?.value
 
-    const isAuthPage = request.url.includes(PUBLIC_URL.auth())
+	const isAuthPage = request.url.includes(PUBLIC_URL.auth())
 
-    if (isAuthPage) {
-        if (refreshToken) {
-            return NextResponse.redirect(
-                new URL(PUBLIC_URL.home(), request.url)
-            )
-        }
+	if (isAuthPage) {
+		if (refreshToken) {
+			return NextResponse.redirect(
+				new URL(PUBLIC_URL.home(), request.url)
+			)
+		}
 
-        return NextResponse.next()
-    }
+		return NextResponse.next()
+	}
 
-    if (refreshToken === undefined) {
-        return NextResponse.redirect(
-            new URL(PUBLIC_URL.auth(), request.url)
-        )
-    }
+	if (refreshToken === undefined) {
+		return NextResponse.redirect(new URL(PUBLIC_URL.auth(), request.url))
+	}
 
-    return NextResponse.next()
+	return NextResponse.next()
 }
 
 export const config = {
-    matcher: ['/dashboard/:path*', '/auth']
+	matcher: ['/dashboard/:path*', '/auth']
 }
