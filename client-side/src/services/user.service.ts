@@ -14,10 +14,12 @@ class UserService {
     }
 
     async toggleFavorite(bookId: string) {
-        return axiosWithAuth<IUser>({
+        const {data} = await axiosWithAuth<IUser>({
             url: API_URL.users(`/profile/favorites/${bookId}`),
             method: 'PATCH'
         })
+
+        return data
     }
 }
 

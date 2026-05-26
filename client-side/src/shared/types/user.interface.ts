@@ -6,6 +6,6 @@ export interface IUser {
 	name: string
 	email: string
 	picture: string
-	favotires: IBook[]
+	favorites: IBook[]
 	orders: IOrder[]
 }

@@ -18,5 +18,5 @@ export const DASHBOARD_URL = {
 	root: (url = '') => `/dashboard${url ? url : ''}`,
 
 	home: () => DASHBOARD_URL.root('/'),
-	favotires: () => DASHBOARD_URL.root('/favotires')
+	favotires: () => DASHBOARD_URL.root('/favorites')
 }
