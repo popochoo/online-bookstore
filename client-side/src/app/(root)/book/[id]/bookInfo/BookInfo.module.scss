@@ -1,0 +1,41 @@
+@reference "../../../../globals.css";
+
+.book_info {
+    @apply mt-10 space-y-5;
+
+    @media (min-width: 640px) {
+        margin-top: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+        margin-top: 0;
+    }
+
+    hr {
+        @apply my-4;
+    }
+
+    > .title {
+        @apply text-3xl font-bold;
+    }
+
+    > .price {
+        @apply text-2xl;
+    }
+
+    > .description {
+        @apply text-muted-foreground text-sm;
+    }
+
+    > .label {
+        @apply flex items-center gap-x-4;
+
+        > h3 {
+            @apply font-semibold;
+        }
+    }
+
+    > .actions {
+        @apply flex items-center gap-x-2;
+    }
+}

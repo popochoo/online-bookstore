@@ -1,0 +1,28 @@
+@reference "../../../globals.css";
+
+.book_page {
+    @apply mx-auto max-w-7xl;
+
+    > .content {
+        @apply space-y-7 px-4 py-10;
+
+        @media (min-width: 640px) {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        > .blocks {
+            @media (min-width: 1024px) {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                align-items: start;
+                column-gap: 2rem;
+            }
+        }
+    }
+}

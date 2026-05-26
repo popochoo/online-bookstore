@@ -11,7 +11,6 @@ interface CategoryPageProps {
 }
 
 async function getBooks(id: string) {
-	console.log('ЗАПРОШЕННЫЙ ID КАТЕГОРИИ:', id)
 	const books = await bookService.getByCategory(id)
 
 	const category = await categoryService.getById(id)

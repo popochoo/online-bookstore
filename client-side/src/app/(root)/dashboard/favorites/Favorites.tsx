@@ -10,7 +10,7 @@ export function Favorites() {
 
 	return (
 		<div className='my-6'>
-			<Catalog title='Избранное' books={user.favotires} />
+			<Catalog title='Избранное' books={user.favorites ?? []} />
 		</div>
 	)
 }
