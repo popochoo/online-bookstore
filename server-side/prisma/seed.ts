@@ -55,8 +55,12 @@ async function main() {
 			return {
 				title: faker.commerce.productName(),
 				description: faker.commerce.productDescription(),
-				price: faker.number.int({ min: 300, max: 3000 }), // Изменено: Int в вашей схеме вместо Float
-				images: ['/uploads/book-example-image.png'],
+				price: faker.number.int({ min: 300, max: 3000 }),
+				images: [
+					'/uploads/book-example-image1.png',
+					'/uploads/book-example-image2.png',
+					'/uploads/book-example-image3.png'
+				],
 				categoryId: randomCategory.id
 			}
 		})
@@ -69,7 +73,7 @@ async function main() {
 		console.log(`Создано книг: ${createdBooks.length}`)
 
 		console.log('Генерация случайных отзывов...')
-		// Явно типизируем структуру под автогенерируемый тип Prisma для createMany
+
 		const reviewsData: Prisma.ReviewCreateManyInput[] = []
 
 		for (const book of createdBooks) {
