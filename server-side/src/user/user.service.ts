@@ -59,6 +59,9 @@ export class UserService {
 						id: bookId
 					}
 				}
+			},
+			include: {
+				favorites: true
 			}
 		})
 
