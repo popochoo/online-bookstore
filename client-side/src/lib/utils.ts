@@ -13,3 +13,15 @@ export function formatPrice(price: number): string {
 		maximumFractionDigits: 0
 	}).format(price)
 }
+
+export function formateDate(createdAt: string): string {
+	const date = new Date(createdAt)
+
+	if (isNaN(date.getTime())) return 'Некорректная дата'
+
+	return new Intl.DateTimeFormat('ru-RU', {
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric'
+	}).format(date)
+}
